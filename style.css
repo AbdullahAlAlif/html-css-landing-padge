@@ -1,0 +1,1142 @@
+/* General Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  
+  background-color: white;
+}
+
+
+
+/* Header Section */
+header {
+  position: relative; /* Ensure the header is the positioning context */
+  height: 80vh;
+  top: 0;
+  background-image: url('img/hero-bg-2.jpg'); 
+  background-size: cover; /* Ensures the image covers the header */
+  background-position: center; /* Centers the image */
+  overflow: hidden; /* Prevents content overflow */
+}
+
+/* Overlay */
+header::before {
+  content: '';  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure it covers the entire header */
+  background-color: hsla(240, 100%, 20%, 0.877); 
+  z-index: 1; /* Lower than the box-container */
+}
+
+
+header .box-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    display: flex; /* Flex layout for horizontal alignment */
+    width: 100%; /* Full width of the header */
+    height: 100%; /* Full height of the header */
+    position: relative; /* Ensures the z-index works */
+    z-index: 2; /* Higher than the overlay */
+  }
+  
+
+header .box1, .box2 {
+  flex: 1; /* Equal width for both boxes */
+  height: 100%; /* Full height of the header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+header .box1 .welcome-text {
+  font-size: 2.5rem; /* Adjust as needed */
+  color: hsl(0, 0%, 79%);
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+header .box1 .welcome-text .line1 u{
+  color: white;
+
+}
+header .box1 .welcome-text .line1, 
+header .box1 .welcome-text .line2 {
+  display: block;
+  margin-bottom: 10px;
+  max-width: 80%; /* Set a max-width to control when text wraps */
+  text-wrap: pretty;
+  
+}
+header .box1 .welcome-text .line2{
+  font-size: 1.25rem;
+}
+
+
+header .box1 .box1-sub{
+  display: flex;
+  flex-direction: column;
+}
+header .box1 .box1-sub .box1-sub-sub .btn-gS{
+  margin-right: 20px;
+  border-radius: 25%;
+
+}
+
+/* Styling for the "Get Started" button */
+header .box1 .box1-sub .btn-gS {
+  background-color: hsl(144, 92%, 38%); /* Light green color */
+  color: white; /* Text color white */
+  border: none; /* Remove border */
+  padding: 0.5rem 2rem; /* Vertical and horizontal padding */
+  border-radius: 50px; /* Oval shape */
+  font-size: 0.8rem; /* Font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+header .box1 .box1-sub .btn-gS:hover {
+  background-color: hsl(144, 100%, 25%); /* Darker green on hover */
+}
+
+/* Styling for the "Watch Video" link */
+header .box1 .box1-sub .watch-vid {
+  color: white; /* Text color white */
+  font-size: 0.8rem; /* Font size */
+  display: inline-flex; /* Align icon and text horizontally */
+  align-items: center; /* Center-align the icon and text */
+  margin-left: 1rem; /* Space between button and text */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+header .box1 .box1-sub .watch-vid i {
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+header .box1 .box1-sub .watch-vid:hover {
+  color: hsl(144, 92%, 38%); /* Green color on hover */
+}
+
+
+header .box-container .box2 .hero-image {
+  max-width: auto;
+  max-height: 70%;
+}
+
+
+
+
+
+
+
+
+/* Existing CSS for Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: hsla(240, 70%, 26%, 0.722);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border: none;
+}
+
+.nav-left h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+  padding-left: 8rem;
+  color: white;
+}
+
+.nav-right .nav-links {
+  list-style-type: none;
+  display: flex;
+  padding-right: 8rem;
+}
+
+.nav-right .nav-links li {
+  margin: 0 15px;
+}
+
+.nav-right .nav-links a {
+  text-decoration: none;
+  color: rgb(199, 199, 199);
+  font-size: 18px;
+  position: relative; /* For positioning the ::after pseudo-element */
+  padding-bottom: 5px; /* Adds a gap between text and the underline */
+  transition: color 0.3s ease;
+}
+
+.nav-right .nav-links a:hover {
+  color: white; 
+}
+
+/* Custom Underline using ::after with animation */
+.nav-right .nav-links a::after {
+  content: ''; /* No text, just the underline */
+  position: absolute;
+  left: 0; /* Start the underline from the left */
+  bottom: 0; /* Position it just below the text */
+  width: 0%; /* Initially, the underline has 0 width */
+  height: 2px; /* Thickness of the underline */
+  background-color: green; /* Color of the underline */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+}
+
+/* On Hover: Underline expands and becomes visible */
+.nav-right .nav-links a:hover::after {
+  width: 50%; /* Underline expands to half the width of the link */
+  opacity: 1; /* Ensure the underline is visible */
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-right .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-right .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links li:not(.dropdown) {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* About Section */
+#about {
+  display: flex; /* To center the .box-container horizontally */
+  padding-left: 8rem;
+  padding-right: 8rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for consistency */
+  background-color: #f4f4f4; /* Background color for visibility */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Box Container for About Section */
+#about .box-container {
+  
+  display: flex; /* Flex layout for horizontal alignment */
+  width: 100%; /* Full width of the section */
+  height: 80%; /* Adjusted height */
+}
+
+/* Left and Right Boxes */
+#about .box-container .box1,
+#about .box-container .box2 {
+  flex: 1; /* Equal width for both boxes */
+  height: 100%; /* Full height of the section */
+  padding: 20px; /* Optional: Add some padding */
+  border-radius: 10px;
+}
+
+/* Left Box Styles */
+#about .box1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+#about .box-container .box1{
+
+  justify-content: center;
+  align-items: first baseline;
+}
+
+#about .box-container .box1 .about-text{
+  background-color: rgba(223, 255, 243, 0.842); 
+  padding: 1px 6px 1px 5px;
+  width: 3.5rem;
+  font-size: 0.5rem;
+  border-radius: 10%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: hsl(101, 41%, 50%);
+
+}
+
+#about .box-container .box1 h1{
+  color: hsl(240, 95%, 32%);
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 80%;
+  text-wrap: pretty;
+  margin-bottom: -10px;
+}
+#about .box-container .box1 p{
+  color: rgb(153, 153, 153);
+  max-width: 80%;
+  text-wrap: pretty;
+  text-align: justify;
+
+}
+#about .box-container .box1 .btn-readm{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5%;
+  background-color:  hsl(145, 70%, 51%);
+  color: white;
+}
+/* Right Box Styles */
+#about .box-container  .box2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Cards Container */
+#about .box2 .cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: auto auto;  /* Rows will adjust automatically */
+  gap: 20px; /* Spacing between cards */
+  width: 100%; /* Full width of the box */
+  max-width: 800px;
+}
+
+/* Card Styles */
+#about .box2 .cards-container .card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: first baseline;
+  text-align: justify;
+  text-justify: inter-word;
+}
+#about .box2 .cards-container .card:nth-child(1){ /*for styling only*/
+  margin-top: 10px;
+}
+/* Card Hover Effect */
+#about .box2 .cards-container .card:hover {
+  transform: translateY(-10px);
+}
+
+/* Icon Styling */
+#about .box2 .cards-container .card .icon {
+  background-color: #e6f8f0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Card Title */
+#about .box2 .cards-container .card h3 {
+  font-size: 1.5em;
+  color: #1a237e;
+  margin-bottom: 10px;
+  
+  
+}
+
+/* Card Description */
+#about .box2 .cards-container .card p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+
+
+#about .small-boxes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 20px;
+  
+  
+}
+#about .small-boxes .sm-b{
+  display: flex;
+  width: 20rem;
+  height: 3rem;
+  border: 1px solid rgb(196, 195, 195);
+  margin-bottom: 15px;
+  align-items: center;
+  padding-left: 3px;
+}
+#about .small-boxes .sm-b:hover{
+  transform: translateY(-5px);
+}
+#about .small-boxes .sm-b p{
+  margin-left: 3px;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1a237e;
+}
+
+
+
+
+
+
+/* Section Container */
+#stats-section {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(179, 159, 196);
+}
+
+/* Stats Container */
+.stats-container {
+  display: flex;
+  justify-content: space-around; /* Evenly space the cards */
+  align-items: center;
+  gap: 20px; /* Add spacing between cards */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+/* Stat Card */
+.stat-card {
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 250px; /* Fixed width for cards */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px); /* Lift on hover */
+}
+
+/* Icon Styling */
+.stat-card .icon {
+  z-index: 1;
+  position: relative;
+  top: -40px;
+}
+.stat-card .icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Headings and Paragraphs */
+.stat-card h2 {
+  font-size: 40px;
+  margin: 0;
+  color: #333;
+}
+
+.stat-card p {
+  font-size: 18px;
+  color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* General styling for the section */
+#services {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+
+}
+
+#services img{
+  height: 200px;
+}
+
+/* Box container for flex layout */
+#services .box-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 2rem 5rem;
+  
+}
+
+
+
+/* Styling for box1 (Image area) */
+#services .box1 {
+  flex: 1;
+}
+
+#services .box1-img {
+  width: 100%;
+  height: 50rem;
+  object-fit: contain;
+}
+
+/* Styling for box2 (Text content) */
+#services .box2 {
+  flex: 1;
+}
+
+#services .box-container h2 {
+  font-size: 1.8em;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+#services .box-container p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
+  max-width: 80%;
+  text-wrap: pretty;
+}
+
+#services .box-container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#services .box-container ul li {
+  font-size: 1em;
+  color: #666;
+  max-width: 80%;
+  text-wrap: pretty;
+}
+ /* Styling each list item (li) */
+ #services .box-container ul li {
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+  font-size: 16px;
+  width: 100%; /* Ensure list takes up full width of container */
+}
+
+/* Adding the green tick mark before each list item */
+#services .box-container ul li::before {
+  content: '\2713'; /* Unicode for check mark (✓) */
+  color: green;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #services .box-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services .box1, #services .box2 {
+    width: 100%;
+  }
+
+  #services .box1-img {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  #services .box2 {
+    text-align: center;
+  }
+}
+
+
+
+#gallery{
+  display: flex; /* To center the .box-container horizontally */
+  padding-left: 8rem;
+  padding-right: 8rem;
+  flex-direction: column;
+}
+  
+#gallery .small-boxes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 20px;
+  
+}
+#gallery .small-boxes .sm-b{
+  display: flex;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid rgb(196, 195, 195);
+  margin-bottom: 15px;
+  align-items: center;
+  padding-left: 3px;
+}
+#gallery .small-boxes .sm-b:hover{
+  transform: translateY(-5px);
+}
+
+
+.gallery-img{
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+#team{
+  display: flex; /* To center the .box-container horizontally */
+  padding-left: 8rem;
+  padding-right: 8rem;
+  flex-direction: column;
+}
+
+#team .profiles {
+ display: flex;
+ justify-content: space-evenly;
+}
+
+#team .profiles .profile-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#team .profiles .profile-card .profile-image-wrapper {
+  height: 300px;
+}
+
+#team .profiles .profile-card .profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#team .profiles .profile-card .profile-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 12px 16px;
+}
+
+#team .profiles .profile-card .profile-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#team .profiles .profile-card .profile-title {
+  color: #666;
+  font-size: 14px;
+}
+
+
+
+#features{
+  padding: 5rem 8rem;
+}
+
+#features .price-table {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.plan {
+  border: 1px solid hsl(92, 17%, 78%);
+  background-color: hsl(91, 47%, 89%);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+  width: 300px;
+}
+
+.plan-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.plan-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.plan-features {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.plan-features li {
+  margin-bottom: 5px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.plan-features li:before {
+  content: '✓';
+  color: green;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.plan-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+#questions .box-container{
+  display: flex;
+  padding: 4rem 4rem;
+  background-color: hsl(273, 56%, 87%);
+}
+.faq-section {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+}
+
+.faq-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: hsl(214, 85%, 45%);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.faq-title span {
+  color: hsl(216, 95%, 34%);
+}
+
+.faq-description {
+  
+  font-size: 16px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #ebf1ff;
+}
+
+.faq-question h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: hsl(81, 93%, 45%);
+  margin: 0;
+}
+
+.faq-toggle {
+  font-size: 24px;
+  font-weight: bold;
+  color: hsl(81, 93%, 45%);
+  transition: color 0.3s;
+}
+
+.faq-answer {
+  padding: 20px 30px;
+  display: none;
+  color: #666;
+  font-size: 16px;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-item.open .faq-question {
+  background-color: #e8f0fe;
+}
+
+.faq-item.open .faq-toggle {
+  color: #ff5e5e;
+}
+
+
+
+
+
+
+
+
+#contact {
+  background: white;
+  
+  max-width: 100%;
+  margin: 40px auto;
+  margin: 0;
+  padding: 4rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  
+}
+
+#contact h3 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 30px;
+}
+
+/* Flexbox Container */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Adds spacing between items */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+/* Contact Form Section */
+.contact-form {
+  flex: 1;
+  max-width: 50%; /* Set width for larger screens */
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-form .couple {
+  display: flex;
+  justify-content: space-between;
+  width: 94%; /* Ensure the container spans the right amount of width of the form */
+  gap: 10px; /* Add spacing between the inputs */
+}
+
+.contact-form .couple input {
+  width: 48%; /* Each input takes half the space minus the gap */
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 90%; /* Other inputs/textareas span right amount of width by default */
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px; /* Keeps the rounded corners */
+  font-size: 16px;
+  cursor: pointer;
+  display: block; /* Ensures the button behaves like a block-level element */
+  margin: 0 auto; /* Automatically centers the button horizontally */
+  margin-top: 20px;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+      flex-direction: column; /* Stack the items vertically on smaller screens */
+  }
+
+  .contact-info,
+  .contact-form {
+      max-width: 100%;
+  }
+
+  .contact-form .couple {
+      flex-direction: column; /* Stack name and email inputs vertically on smaller screens */
+  }
+
+  .contact-form .couple input {
+      width: 100%; /* Each input spans full width on small screens */
+  }
+}
+
+
+
+
+
+footer .container .row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  background-color: rgb(2, 2, 82);
+  color: #fff;
+  padding: 4rem 4rem;
+  margin: 0;
+
+}
+
+footer h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  width: 80%;
+  text-wrap: pretty;
+}
+
+footer p,
+footer ul li a {
+  color: #adb5bd;
+  width: 80%;
+  text-wrap: pretty;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li a {
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #fff;
+}
+
+.social-icons .icon-link {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #adb5bd;
+}
+
+.social-icons .icon-link:hover {
+  color: #fff;
+}
+
+.copyright {
+  background-color: rgb(2, 2, 82);
+  
+  text-align: center;
+  color: #6c757d;
+}
+
+footer button{
+  background-color: hsl(144, 92%, 38%); /* Light green color */
+  color: white; /* Text color white */
+  border: none; /* Remove border */
+  padding: 0.5rem 2rem; /* Vertical and horizontal padding */
+  margin-left: 0;
+  font-size: 0.8rem; /* Font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+footer button:hover{
+  background-color: hsl(144, 79%, 49%);
+}
+footer input{
+  background-color: rgb(2, 2, 82);
+  margin-right: 0;
+  height: 1.5rem;
+  border: 2px solid rgb(25, 25, 95);
+}
+
+
+
+
+
+/* Update the responsive dropdown behavior */
+@media (max-width: 1200px) {
+  /* Hide all nav items except dropdown */
+  .nav-right .nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-right .nav-links li:not(.dropdown) {
+    display: none;
+  }
+
+  .nav-right .nav-links .dropdown {
+    display: block;
+    position: relative;
+  }
+
+  /* Slide-down menu styling */
+  .nav-right .nav-links.active {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 8rem;
+    width: 200px;
+    background-color: hsla(240, 70%, 26%, 0.95);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* Menu items styling */
+  .nav-right .nav-links.active li:not(.dropdown) {
+    display: block !important;
+    text-align: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ensure dropdown stays in navbar */
+  .nav-right .nav-links.active .dropdown {
+    position: absolute;
+    top: -45px; /* Adjust this value to match your navbar height */
+    right: 8rem;
+  }
+
+  .nav-right .nav-links.active li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-right .nav-links.active li:not(.dropdown) a {
+    color: rgb(199, 199, 199);
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-right .nav-links.active li:not(.dropdown):hover a {
+    color: white;
+    padding-left: 10px;
+  }
+}
+
+/* Animation for slide down */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
