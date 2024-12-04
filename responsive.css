@@ -5,51 +5,39 @@
   /* Navbar */
   .nav-right .nav-links {
     padding-right: 4rem;
+    display: flex;
+    flex-direction: column;
   }
-  
+
   .nav-left h1 {
     padding-left: 4rem;
   }
 
-  /* Hero Section */
-  header {
-    min-height: 100vh;
+  /* Hide all nav items except dropdown */
+  .nav-right .nav-links li:not(.dropdown) {
+    display: none;
   }
 
-  header .box-container {
-    padding: 2rem 4rem;
-    align-items: center;
+  .nav-right .nav-links .dropdown {
+    display: block;
+    position: relative;
   }
 
-  header .box1 .welcome-text {
-    font-size: 2.2rem;
+  /* Slide-down menu styling */
+  .nav-right .nav-links.active {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 8rem;
+    width: 200px;
+    background-color: hsla(240, 70%, 26%, 0.95);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+    animation: slideDown 0.3s ease forwards;
   }
 
-  /* About Section */
-  #about {
-    padding: 6rem 4rem;
-  }
-
-  #about .box-container {
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  #about .small-boxes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  /* Stats Section */
-  #stats-section {
-    padding: 4rem;
-  }
-
-  .stats-container {
-    gap: 2rem;
-  }
-
+  /* Features Section */
   #features {
     padding: 4rem;
   }
@@ -57,54 +45,8 @@
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 992px) {
-  /* Hero Section */
-  header .box-container {
-    padding: 2rem;
-    gap: 2rem;
-  }
-
-  header .box1 .welcome-text {
-    font-size: 2rem;
-  }
-
-  header .box2 .hero-image {
-    width: 80%;
-  }
-
-  /* About Section */
-  #about {
+  #features {
     padding: 4rem 2rem;
-    height: auto;
-  }
-
-  #about .box-container {
-    flex-direction: column;
-  }
-
-  #about .box-container .box1 {
-    width: 100%;
-    order: 1;
-  }
-
-  #about .box-container .box2 {
-    width: 100%;
-    order: 2;
-    margin-top: 2rem;
-  }
-
-  #about .small-boxes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Stats Section */
-  .stats-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .stat-card {
-    width: calc(50% - 2rem);
-    min-width: 250px;
   }
 
   #features .small-boxes {
@@ -112,77 +54,42 @@
     gap: 1.5rem;
   }
 
-  /* About Section Cards */
-  #about .box2 .cards-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+  /* Services Section */
+  #services .box-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services .box1, #services .box2 {
+    width: 100%;
   }
 }
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 768px) {
-  /* Hero Section */
-  header .box-container {
+  /* Navbar */
+  .navbar {
     flex-direction: column;
-    padding: 1rem;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: 100%;
     text-align: center;
   }
 
-  header .box1 {
-    order: 2;
+  .nav-right .nav-links {
+    flex-direction: column;
   }
 
-  header .box2 {
-    order: 1;
-    margin-bottom: 2rem;
+  .nav-right .nav-links li {
+    margin: 10px 0;
   }
 
-  header .box1 .welcome-text {
-    font-size: 1.8rem;
-  }
-
-  header .box2 .hero-image {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  /* About Section */
-  #about {
-    padding: 3rem 1rem;
-  }
-
-  #about .box-container {
-    margin-bottom: 2rem;
-  }
-
-  #about .box-container .box1 h1 {
-    font-size: 1.8rem;
-  }
-
-  #about .small-boxes {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  #about .small-boxes .sm-b {
-    height: auto;
-    min-height: 60px;
-    padding: 0.8rem;
-  }
-
-  /* Stats Section */
-  #stats-section {
-    padding: 2rem 1rem;
-  }
-
-  .stat-card {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 1.5rem;
-  }
-
+  /* Features Section */
   #features {
-    padding: 3rem 2rem;
+    padding: 3rem 1rem;
   }
 
   #features .small-boxes {
@@ -190,76 +97,31 @@
     gap: 1rem;
   }
 
-  /* About Section Cards */
-  #about .box2 .cards-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 100%;
+  /* Services Section */
+  #services .box1-img {
+    max-width: 80%;
+    margin-bottom: 20px;
   }
 
-  #about .box2 .cards-container .card {
-    padding: 1.5rem;
-    text-align: left;
+  #services .box2 {
+    text-align: center;
   }
 
-  #about .box2 .cards-container .card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+  .custom-shape-divider-bottom svg {
+    height: 50px;
   }
 
-  #about .box2 .cards-container .card p {
-    font-size: 0.9rem;
+  #about {
+    padding-bottom: 50px;
   }
 
-  #about .box-container .box1 {
-    margin-bottom: 3rem;
-  }
-
-  #about .box2 .cards-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .wave svg {
+    height: 100px;
   }
 }
 
 /* Extra small devices (phones, less than 576px) */
 @media (max-width: 576px) {
-  /* Hero Section */
-  header .box1 .welcome-text {
-    font-size: 1.5rem;
-  }
-
-  header .box1 .box-sub-sub {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  /* About Section */
-  #about .small-boxes {
-    grid-template-columns: 1fr;
-  }
-
-  #about .box-container .box1 h1 {
-    font-size: 1.5rem;
-  }
-
-  #about .box-container .box1 p {
-    font-size: 0.9rem;
-  }
-
-  /* Stats Section */
-  .stat-card {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .stat-card h2 {
-    font-size: 1.8rem;
-  }
-
-  .stat-card p {
-    font-size: 0.9rem;
-  }
-
   #features {
     padding: 2rem 1rem;
   }
@@ -272,19 +134,8 @@
     padding: 1rem;
   }
 
-  /* About Section Cards */
-  #about .box2 .cards-container .card {
-    padding: 1rem;
-  }
-
-  #about .box2 .cards-container .card .icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  #about .box2 .cards-container .card .icon img {
-    width: 20px;
-    height: 20px;
+  .wave svg {
+    height: 70px;
   }
 }
 
@@ -306,5 +157,17 @@
 
   header .box2 .hero-image {
     max-height: 40vh;
+  }
+}
+
+/* Animation keyframes */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 } 

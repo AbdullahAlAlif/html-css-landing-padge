@@ -12,38 +12,60 @@ html, body {
 
 /* Header Section */
 header {
-  position: relative; /* Ensure the header is the positioning context */
+  position: relative;
   height: 80vh;
   top: 0;
   background-image: url('img/hero-bg-2.jpg'); 
-  background-size: cover; /* Ensures the image covers the header */
-  background-position: center; /* Centers the image */
-  overflow: hidden; /* Prevents content overflow */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
 /* Overlay */
 header::before {
-  content: '';  
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Ensure it covers the entire header */
-  background-color: hsla(240, 100%, 20%, 0.877); 
-  z-index: 1; /* Lower than the box-container */
+  height: 100%;
+  background-color: rgba(24, 6, 185, 0.8);
+  z-index: 1;
 }
 
+/* Wave Styles */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2; /* Above the overlay */
+  transform: rotate(180deg);
+}
 
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.wave .shape-fill {
+  fill: #f4f4f4; /* Match the about section background color */
+}
+
+/* Box Container - Update z-index */
 header .box-container {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    display: flex; /* Flex layout for horizontal alignment */
-    width: 100%; /* Full width of the header */
-    height: 100%; /* Full height of the header */
-    position: relative; /* Ensures the z-index works */
-    z-index: 2; /* Higher than the overlay */
-  }
-  
+  position: relative;
+  z-index: 2; /* Same as wave to be above overlay */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 8rem;
+}
 
 header .box1, .box2 {
   flex: 1; /* Equal width for both boxes */
@@ -255,14 +277,13 @@ header .box-container .box2 .hero-image {
 
 /* About Section */
 #about {
-  display: flex; /* To center the .box-container horizontally */
-  padding-left: 8rem;
-  padding-right: 8rem;
+  display: flex;
+  padding: 8rem 8rem 100px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height for consistency */
-  background-color: #f4f4f4; /* Background color for visibility */
+  min-height: 100vh;
+  background-color: #f4f4f4;
   position: relative;
   overflow: hidden;
 }
@@ -699,11 +720,11 @@ header .box-container .box2 .hero-image {
 
 
 
-#features{
+#prices{
   padding: 5rem 8rem;
 }
 
-#features .price-table {
+#prices .price-table {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -1135,6 +1156,108 @@ footer input{
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Features Section */
+#features {
+  padding: 4rem 8rem;
+  background-color: #f8f9fa;
+}
+
+#features .small-boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+#features .small-boxes .sm-b {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#features .small-boxes .sm-b:hover {
+  transform: translateY(-5px);
+}
+
+#features .small-boxes .sm-b i {
+  font-size: 1.5rem;
+  color: hsl(144, 92%, 38%);
+}
+
+#features .small-boxes .sm-b p {
+  margin: 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Add these responsive styles to your responsive.css */
+@media (max-width: 1200px) {
+  #features {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  #features {
+    padding: 4rem 2rem;
+  }
+
+  #features .small-boxes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #features {
+    padding: 3rem 1rem;
+  }
+
+  #features .small-boxes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #features {
+    padding: 2rem 1rem;
+  }
+
+  #features .small-boxes {
+    grid-template-columns: 1fr;
+  }
+
+  #features .small-boxes .sm-b {
+    padding: 1rem;
+  }
+}
+
+/* Curved divider styles */
+.custom-shape-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px; /* Increased height for more visible wave */
+}
+
+.custom-shape-divider-bottom .shape-fill {
+  fill: #f8f9fa; /* This should match your features section background color */
 }
 
 
